@@ -40,10 +40,10 @@ const EventFlyer = () => {
           {/* Title */}
           <div className="text-center mb-8">
             <h1 className="font-display text-2xl sm:text-3xl font-black leading-tight text-foreground mb-2">
-              2-Minute Self Introduction
+              Sanjivani
             </h1>
             <h2 className="font-display text-3xl sm:text-4xl font-black text-gold-gradient leading-tight">
-              Video Challenge 2026
+              Reel Your Introduction
             </h2>
             <div className="mt-3 inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-1.5">
               <Video className="w-3.5 h-3.5 text-accent" />
