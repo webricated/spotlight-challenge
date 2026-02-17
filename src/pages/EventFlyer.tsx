@@ -1,8 +1,33 @@
 import { Camera, Mic, Trophy, Calendar, Video, Globe, AlertCircle, User } from "lucide-react";
+import { useState } from "react";
 import qrCode from "@/assets/qr-code.svg";
-import sanjivaniLogo from "@/assets/sanjivani-logo-generated.png";
+import sanjivaniLogo from "@/assets/sanjivani-logo-official.png";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSexample/viewform";
 
 const EventFlyer = () => {
+  const [showDownload, setShowDownload] = useState(false);
+
+  const handleLogoClick = () => setShowDownload(true);
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = sanjivaniLogo;
+    link.download = "sanjivani-college-logo.png";
+    link.click();
+    setShowDownload(false);
+  };
+
   return (
     <div className="min-h-screen bg-navy-gradient flex items-center justify-center p-4 sm:p-8">
       <div className="w-full max-w-[595px] bg-navy-gradient spotlight-effect shadow-gold rounded-2xl overflow-hidden border border-gold/30 relative">
@@ -18,13 +43,14 @@ const EventFlyer = () => {
             <img
               src={sanjivaniLogo}
               alt="Sanjivani College of Engineering Logo"
-              className="w-20 h-20 mx-auto mb-3 rounded-full shadow-gold"
+              className="w-20 h-20 mx-auto mb-3 rounded-full shadow-gold cursor-pointer hover:scale-105 transition-transform"
+              onClick={handleLogoClick}
             />
             <p className="text-sm font-body font-semibold tracking-[0.2em] uppercase text-gold-light">
               Sanjivani College of Engineering
             </p>
             <p className="text-xs font-body text-muted-foreground mt-1">
-              Training & Placement Department
+              Department of Training & Placement
             </p>
           </div>
 
@@ -147,9 +173,14 @@ const EventFlyer = () => {
 
           {/* QR Code */}
           <div className="text-center mb-6">
-            <div className="inline-block bg-foreground rounded-2xl p-4 shadow-gold">
+            <a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-foreground rounded-2xl p-4 shadow-gold cursor-pointer hover:scale-105 transition-transform"
+            >
               <img src={qrCode} alt="Scan to Register QR Code" className="w-36 h-36" />
-            </div>
+            </a>
             <p className="mt-3 text-sm font-body font-bold text-accent tracking-wide">
               📲 Scan to Register
             </p>
@@ -170,6 +201,24 @@ const EventFlyer = () => {
           </div>
         </div>
       </div>
+
+      {/* Logo Download Dialog */}
+      <AlertDialog open={showDownload} onOpenChange={setShowDownload}>
+        <AlertDialogContent className="bg-card border-border">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-foreground">Download Logo</AlertDialogTitle>
+            <AlertDialogDescription className="text-muted-foreground">
+              Do you want to download the Sanjivani College of Engineering logo?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="border-border text-muted-foreground">Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleDownload} className="bg-accent text-accent-foreground hover:bg-accent/90">
+              Yes
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
