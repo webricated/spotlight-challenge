@@ -1,4 +1,4 @@
-import { Camera, Mic, Trophy, Calendar, Video, Globe, AlertCircle, User } from "lucide-react";
+import { Camera, Mic, Trophy, Calendar, Video, Globe, User } from "lucide-react";
 import { useState } from "react";
 import qrCode from "@/assets/qr-code.svg";
 import sanjivaniLogo from "@/assets/sanjivani-logo-official.png";
@@ -12,11 +12,22 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSexample/viewform";
 
+const PointingFinger = () => (
+  <span className="inline-block animate-bounce text-lg">👆</span>
+);
+
 const EventFlyer = () => {
   const [showDownload, setShowDownload] = useState(false);
+  const [showGuidelines, setShowGuidelines] = useState(false);
 
   const handleLogoClick = () => setShowDownload(true);
 
@@ -26,6 +37,13 @@ const EventFlyer = () => {
     link.download = "sanjivani-college-logo.png";
     link.click();
     setShowDownload(false);
+  };
+
+  const handleLogoDownloadFromGuidelines = () => {
+    const link = document.createElement("a");
+    link.href = sanjivaniLogo;
+    link.download = "sanjivani-college-logo.png";
+    link.click();
   };
 
   return (
@@ -40,12 +58,15 @@ const EventFlyer = () => {
         <div className="px-6 sm:px-10 py-8 relative z-10">
           {/* Header with Logo */}
           <div className="text-center mb-6">
-            <img
-              src={sanjivaniLogo}
-              alt="Sanjivani College of Engineering Logo"
-              className="w-20 h-20 mx-auto mb-3 rounded-full shadow-gold cursor-pointer hover:scale-105 transition-transform"
-              onClick={handleLogoClick}
-            />
+            <div className="relative inline-block">
+              <img
+                src={sanjivaniLogo}
+                alt="Sanjivani College of Engineering Logo"
+                className="w-20 h-20 mx-auto mb-3 rounded-full shadow-gold cursor-pointer hover:scale-105 transition-transform"
+                onClick={handleLogoClick}
+              />
+              <span className="absolute -right-6 top-1/2 -translate-y-1/2 animate-bounce text-lg">👈</span>
+            </div>
             <p className="text-sm font-body font-semibold tracking-[0.2em] uppercase text-gold-light">
               Sanjivani College of Engineering
             </p>
@@ -71,11 +92,17 @@ const EventFlyer = () => {
             <h2 className="font-display text-3xl sm:text-4xl font-black text-gold-gradient leading-tight">
               Reel Your Introduction
             </h2>
-            <div className="mt-3 inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-1.5">
-              <Video className="w-3.5 h-3.5 text-accent" />
-              <span className="text-xs font-body font-semibold text-accent">
-                🎬 Submit a 2-minute video introducing yourself
-              </span>
+            <div className="mt-3 relative inline-flex items-center gap-2">
+              <button
+                onClick={() => setShowGuidelines(true)}
+                className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-1.5 cursor-pointer hover:bg-accent/20 transition-colors"
+              >
+                <Video className="w-3.5 h-3.5 text-accent" />
+                <span className="text-xs font-body font-semibold text-accent">
+                  🎬 Video Submission Guidelines
+                </span>
+              </button>
+              <PointingFinger />
             </div>
           </div>
 
@@ -84,16 +111,16 @@ const EventFlyer = () => {
             <div className="bg-card/60 backdrop-blur border border-border rounded-xl p-4 text-center">
               <Calendar className="w-5 h-5 text-accent mx-auto mb-2" />
               <p className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-1">
-                Last Date of Registration
+                Registration Open
               </p>
               <p className="text-lg font-display font-bold text-foreground">
-                24 Feb 2026
+                18 Feb 2026
               </p>
             </div>
             <div className="bg-card/60 backdrop-blur border border-border rounded-xl p-4 text-center">
               <Video className="w-5 h-5 text-accent mx-auto mb-2" />
               <p className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-1">
-                Last Date of Submission
+                Last Date of Video Submission
               </p>
               <p className="text-lg font-display font-bold text-foreground">
                 28 Feb 2026
@@ -147,40 +174,19 @@ const EventFlyer = () => {
             </p>
           </div>
 
-          {/* Important Guidelines */}
-          <div className="bg-card/50 border border-border rounded-xl p-4 mb-6">
-            <div className="flex items-center gap-2 mb-3">
-              <AlertCircle className="w-4 h-4 text-destructive" />
-              <h3 className="text-xs font-body font-bold uppercase tracking-wider text-destructive">
-                Important Guidelines
-              </h3>
-            </div>
-            <ul className="space-y-2 text-xs font-body text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-0.5">•</span>
-                <span>Video must include <strong className="text-foreground">Sanjivani College of Engineering logo</strong> clearly visible in the background</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-0.5">•</span>
-                <span>No abusive or inappropriate content</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-0.5">•</span>
-                <span>Duration strictly <strong className="text-foreground">2 minutes</strong></span>
-              </li>
-            </ul>
-          </div>
-
           {/* QR Code */}
           <div className="text-center mb-6">
-            <a
-              href={GOOGLE_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-foreground rounded-2xl p-4 shadow-gold cursor-pointer hover:scale-105 transition-transform"
-            >
-              <img src={qrCode} alt="Scan to Register QR Code" className="w-36 h-36" />
-            </a>
+            <div className="relative inline-block">
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-foreground rounded-2xl p-4 shadow-gold cursor-pointer hover:scale-105 transition-transform"
+              >
+                <img src={qrCode} alt="Scan to Register QR Code" className="w-36 h-36" />
+              </a>
+              <span className="absolute -right-7 top-1/2 -translate-y-1/2 animate-bounce text-lg">👈</span>
+            </div>
             <p className="mt-3 text-sm font-body font-bold text-accent tracking-wide">
               📲 Scan to Register
             </p>
@@ -219,6 +225,64 @@ const EventFlyer = () => {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      {/* Video Submission Guidelines Dialog */}
+      <Dialog open={showGuidelines} onOpenChange={setShowGuidelines}>
+        <DialogContent className="bg-card border-border max-w-md max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-foreground text-lg font-display">
+              🎬 Video Submission Guidelines
+            </DialogTitle>
+          </DialogHeader>
+          <ul className="space-y-3 text-sm font-body text-muted-foreground mt-2">
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span><strong className="text-foreground">Duration:</strong> 2 to 5 minutes only</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span><strong className="text-foreground">Topic:</strong> Self Introduction</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span><strong className="text-foreground">Language:</strong> English or any foreign language (German/Japanese)</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span>Maintain formal attire and confident body language</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span>Ensure clear audio and good lighting</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span>
+                Include the official institute logo visible in the background
+                <br />
+                <button
+                  onClick={handleLogoDownloadFromGuidelines}
+                  className="text-accent underline hover:text-accent/80 transition-colors mt-1 inline-block"
+                >
+                  Click here to download the logo
+                </button>
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span>No abusive, inappropriate, or offensive content</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span>Video should be recorded in landscape mode</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-0.5">•</span>
+              <span>Speak naturally and avoid reading fully from paper</span>
+            </li>
+          </ul>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
