@@ -1,4 +1,5 @@
-import { Camera, Mic, Trophy, Calendar, Video, Globe, User } from "lucide-react";
+import { Camera, Mic, Calendar, Video, Globe, User } from "lucide-react";
+import PrizePodium from "@/components/PrizePodium";
 import { useState } from "react";
 import qrCode from "@/assets/qr-code.svg";
 import sanjivaniLogo from "@/assets/sanjivani-logo-official.png";
@@ -146,32 +147,7 @@ const EventFlyer = () => {
 
           {/* Prize Money */}
           <div className="mb-6">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Trophy className="w-5 h-5 text-accent" />
-              <h3 className="text-sm font-body font-bold uppercase tracking-wider text-accent">
-                Prize Money
-              </h3>
-            </div>
-            <div className="grid grid-cols-3 gap-2 mb-3">
-              <div className="bg-gold-gradient rounded-xl p-3 text-center shadow-gold">
-                <span className="text-lg">🥇</span>
-                <p className="text-xs font-body font-bold text-accent-foreground mt-1">1st Prize</p>
-                <p className="text-lg font-display font-black text-accent-foreground">₹1500</p>
-              </div>
-              <div className="bg-card/70 border border-border rounded-xl p-3 text-center">
-                <span className="text-lg">🥈</span>
-                <p className="text-xs font-body font-bold text-muted-foreground mt-1">2nd Prize</p>
-                <p className="text-lg font-display font-black text-foreground">₹1000</p>
-              </div>
-              <div className="bg-card/70 border border-border rounded-xl p-3 text-center">
-                <span className="text-lg">🥉</span>
-                <p className="text-xs font-body font-bold text-muted-foreground mt-1">3rd Prize</p>
-                <p className="text-lg font-display font-black text-foreground">₹500</p>
-              </div>
-            </div>
-            <p className="text-center text-xs font-body text-muted-foreground">
-              🎁 + 5 Consolation Prizes
-            </p>
+            <PrizePodium />
           </div>
 
           {/* QR Code */}
