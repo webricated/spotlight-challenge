@@ -17,11 +17,11 @@ const EventFlyer = () => {
           <div className="text-center mb-6">
             <img
               src={sanjivaniLogo}
-              alt="Sanjivani Group of Institutes Logo"
+              alt="Sanjivani College of Engineering Logo"
               className="w-20 h-20 mx-auto mb-3 rounded-full shadow-gold"
             />
             <p className="text-sm font-body font-semibold tracking-[0.2em] uppercase text-gold-light">
-              Sanjivani Group of Institutes
+              Sanjivani College of Engineering
             </p>
             <p className="text-xs font-body text-muted-foreground mt-1">
               Training & Placement Department
@@ -132,7 +132,7 @@ const EventFlyer = () => {
             <ul className="space-y-2 text-xs font-body text-muted-foreground">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-0.5">•</span>
-                <span>Video must include <strong className="text-foreground">Sanjivani Group of Institutes logo</strong> clearly visible in the background</span>
+                <span>Video must include <strong className="text-foreground">Sanjivani College of Engineering logo</strong> clearly visible in the background</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-0.5">•</span>
