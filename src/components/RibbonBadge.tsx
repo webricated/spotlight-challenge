@@ -1,4 +1,4 @@
-import ribbon from "@/assets/ribbon.png"; // adjust path if needed
+import ribbon from "@/assets/ribbon.png";
 
 interface RibbonBadgeProps {
   onClickAction?: () => void;
@@ -6,14 +6,14 @@ interface RibbonBadgeProps {
 
 const RibbonBadge = ({ onClickAction }: RibbonBadgeProps) => {
   return (
-    <div className="absolute top-10 left-10 z-40 select-none">
+    <div className="absolute top-4 left-4 z-40 select-none">
       <img
         src={ribbon}
         alt="Spotlight Challenge Ribbon"
         onClick={onClickAction}
-        className="w-64 cursor-pointer"
+        className="w-48 cursor-pointer"  // reduced size (was w-64)
         style={{
-          transform: "rotate(-35deg)",   // 35 degree anti-clockwise
+          transform: "rotate(-35deg)",
           transformOrigin: "center",
         }}
       />
