@@ -1,5 +1,6 @@
 import { Camera, Mic, Calendar, Video, Globe, User, Monitor } from "lucide-react";
 import PrizePodium from "@/components/PrizePodium";
+import RibbonBadge from "@/components/RibbonBadge";
 import { useState } from "react";
 import qrCode from "@/assets/qr-code.svg";
 import whatsappQr from "@/assets/whatsapp-qr.svg";
@@ -25,7 +26,7 @@ const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSexample/viewf
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/JON6X0wYhjmBwBhwOURl1s";
 
 const PointingFinger = () => (
-  <span className="inline-block animate-bounce text-lg">👆</span>
+  <span className="inline-block animate-bounce text-lg" style={{ transform: "rotate(-90deg)" }}>👆</span>
 );
 
 const EventFlyer = () => {
@@ -167,9 +168,6 @@ const EventFlyer = () => {
 
       {/* WhatsApp Group QR */}
       <div className="text-center">
-        <p className="mb-2 text-sm font-body font-bold text-[hsl(var(--sky))] tracking-wide">
-          Join WhatsApp Group 👇
-        </p>
         <div className="relative inline-block">
           <a
             href={WHATSAPP_GROUP_URL}
@@ -181,8 +179,8 @@ const EventFlyer = () => {
           </a>
           <span className="absolute -right-7 top-1/2 -translate-y-1/2 animate-bounce text-lg">👈</span>
         </div>
-        <p className="mt-2 text-xs font-body text-muted-foreground">
-          Scan or click to join
+        <p className="mt-2 text-sm font-body font-bold text-accent tracking-wide">
+          📲 WhatsApp Group
         </p>
       </div>
     </div>
@@ -212,6 +210,8 @@ const EventFlyer = () => {
         <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-gold/40 rounded-bl-2xl" />
         <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold/40 rounded-br-2xl" />
 
+        <RibbonBadge onClickAction={() => window.open(GOOGLE_FORM_URL, "_blank")} />
+
         <div className="px-6 sm:px-10 py-8 relative z-10">
           {headerSection}
           {divider}
@@ -231,112 +231,110 @@ const EventFlyer = () => {
   // ─── Landscape (TV) layout ───
 
   const landscapeLayout = (
-    <div className="w-screen h-screen bg-navy-gradient spotlight-effect overflow-hidden flex flex-col p-4 relative">
+    <div className="w-screen h-screen bg-navy-gradient spotlight-effect overflow-hidden relative">
       {/* Decorative corner accents */}
-      <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gold/40 rounded-tl-2xl" />
-      <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-gold/40 rounded-tr-2xl" />
-      <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-gold/40 rounded-bl-2xl" />
-      <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gold/40 rounded-br-2xl" />
+      <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gold/40 rounded-tl-2xl z-20" />
+      <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-gold/40 rounded-tr-2xl z-20" />
+      <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-gold/40 rounded-bl-2xl z-20" />
+      <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gold/40 rounded-br-2xl z-20" />
 
-      {/* Top – Branding */}
-      <div className="flex-shrink-0 text-center py-2 relative z-10">
-        <div className="flex items-center justify-center gap-4">
+      <RibbonBadge onClickAction={() => window.open(GOOGLE_FORM_URL, "_blank")} />
+
+      <div className="h-full flex flex-col px-6 py-3">
+        {/* Top – Branding row */}
+        <div className="flex-shrink-0 flex items-center justify-center gap-4 pb-2 border-b border-gold/20">
           <img
             src={sanjivaniLogo}
             alt="Logo"
-            className="w-12 h-12 rounded-full shadow-gold cursor-pointer hover:scale-105 transition-transform"
+            className="w-10 h-10 rounded-full shadow-gold cursor-pointer hover:scale-105 transition-transform"
             onClick={handleLogoClick}
           />
-          <div>
-            <p className="text-sm font-body font-semibold tracking-[0.2em] uppercase text-gold-light">
+          <div className="text-center">
+            <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-gold-light">
               Sanjivani College of Engineering
             </p>
-            <p className="text-[10px] font-body text-muted-foreground">
+            <p className="text-[9px] font-body text-muted-foreground">
               Department of Training & Placement
             </p>
           </div>
-        </div>
-        <div className="flex items-center gap-3 mt-2 justify-center">
-          <div className="w-24 h-px bg-gold-gradient opacity-40" />
-          <Camera className="w-3 h-3 text-accent" />
-          <Mic className="w-3 h-3 text-accent" />
-          <Video className="w-3 h-3 text-accent" />
-          <div className="w-24 h-px bg-gold-gradient opacity-40" />
-        </div>
-      </div>
-
-      {/* Two-column body */}
-      <div className="flex-1 flex gap-4 min-h-0 relative z-10 mt-1">
-        {/* Left column */}
-        <div className="flex-1 flex flex-col justify-center items-center overflow-hidden px-4">
-          <h1 className="font-display text-2xl font-black leading-tight text-foreground mb-1">Sanjivani</h1>
-          <h2 className="font-display text-3xl font-black text-gold-gradient leading-tight mb-2">Reel Your Introduction</h2>
-          <button
-            onClick={() => setShowGuidelines(true)}
-            className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-3 py-1 cursor-pointer hover:bg-accent/20 transition-colors mb-3"
-          >
+          <div className="flex items-center gap-2 ml-4">
+            <Camera className="w-3 h-3 text-accent" />
+            <Mic className="w-3 h-3 text-accent" />
             <Video className="w-3 h-3 text-accent" />
-            <span className="text-[10px] font-body font-semibold text-accent">🎬 Video Submission Guidelines</span>
-          </button>
-
-          <div className="grid grid-cols-2 gap-2 w-full max-w-sm mb-3">
-            <div className="bg-card/60 backdrop-blur border border-border rounded-lg p-2 text-center">
-              <Calendar className="w-4 h-4 text-accent mx-auto mb-1" />
-              <p className="text-[8px] font-body uppercase tracking-wider text-muted-foreground">Registration Open</p>
-              <p className="text-sm font-display font-bold text-foreground">18 Feb 2026</p>
-            </div>
-            <div className="bg-card/60 backdrop-blur border border-border rounded-lg p-2 text-center">
-              <Video className="w-4 h-4 text-accent mx-auto mb-1" />
-              <p className="text-[8px] font-body uppercase tracking-wider text-muted-foreground">Last Date of Video Submission</p>
-              <p className="text-sm font-display font-bold text-foreground">28 Feb 2026</p>
-            </div>
-          </div>
-
-          <div className="bg-card/40 border border-border rounded-lg p-2 text-center w-full max-w-sm">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <Globe className="w-3 h-3 text-sky" />
-              <span className="text-[10px] font-body font-bold uppercase tracking-wider text-sky">Language Options</span>
-            </div>
-            <p className="text-xs font-body font-semibold text-foreground">English / German / Japanese</p>
           </div>
         </div>
 
-        {/* Right column */}
-        <div className="flex-1 flex flex-col justify-center items-center overflow-hidden px-4">
-          <div className="transform scale-75 origin-center mb-2">
-            <PrizePodium />
+        {/* Three-column body */}
+        <div className="flex-1 flex gap-4 min-h-0 mt-2">
+          {/* Left column – Title & Info */}
+          <div className="flex-[1.1] flex flex-col justify-center items-center px-2">
+            <h1 className="font-display text-xl font-black leading-tight text-foreground">Sanjivani</h1>
+            <h2 className="font-display text-2xl font-black text-gold-gradient leading-tight mb-2">Reel Your Introduction</h2>
+            <button
+              onClick={() => setShowGuidelines(true)}
+              className="inline-flex items-center gap-1.5 bg-accent/10 border border-accent/30 rounded-full px-3 py-1 cursor-pointer hover:bg-accent/20 transition-colors mb-2"
+            >
+              <Video className="w-3 h-3 text-accent" />
+              <span className="text-[9px] font-body font-semibold text-accent">🎬 Guidelines</span>
+              <PointingFinger />
+            </button>
+
+            <div className="grid grid-cols-2 gap-2 w-full max-w-xs mb-2">
+              <div className="bg-card/60 backdrop-blur border border-border rounded-lg p-1.5 text-center">
+                <Calendar className="w-3 h-3 text-accent mx-auto mb-0.5" />
+                <p className="text-[7px] font-body uppercase tracking-wider text-muted-foreground">Registration Open</p>
+                <p className="text-xs font-display font-bold text-foreground">18 Feb 2026</p>
+              </div>
+              <div className="bg-card/60 backdrop-blur border border-border rounded-lg p-1.5 text-center">
+                <Video className="w-3 h-3 text-accent mx-auto mb-0.5" />
+                <p className="text-[7px] font-body uppercase tracking-wider text-muted-foreground">Video Submission</p>
+                <p className="text-xs font-display font-bold text-foreground">28 Feb 2026</p>
+              </div>
+            </div>
+
+            <div className="bg-card/40 border border-border rounded-lg p-1.5 text-center w-full max-w-xs">
+              <div className="flex items-center justify-center gap-1">
+                <Globe className="w-3 h-3 text-sky" />
+                <span className="text-[8px] font-body font-bold uppercase tracking-wider text-sky">Language</span>
+              </div>
+              <p className="text-[10px] font-body font-semibold text-foreground">English / German / Japanese</p>
+            </div>
           </div>
-          <div className="flex items-start justify-center gap-4">
+
+          {/* Center column – Prize Podium */}
+          <div className="flex-1 flex flex-col justify-center items-center overflow-hidden">
+            <div className="transform scale-[0.6] origin-center">
+              <PrizePodium />
+            </div>
+          </div>
+
+          {/* Right column – QR Codes */}
+          <div className="flex-[0.8] flex flex-col justify-center items-center gap-3 px-2">
             {/* Google Form QR */}
             <div className="text-center">
               <a href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer"
                 className="inline-block bg-foreground rounded-xl p-2 shadow-gold cursor-pointer hover:scale-105 transition-transform">
                 <img src={qrCode} alt="Register" className="w-20 h-20" />
               </a>
-              <p className="mt-1 text-[10px] font-body font-bold text-accent">📲 Register</p>
+              <p className="mt-1 text-[9px] font-body font-bold text-accent">📲 Register</p>
             </div>
             {/* WhatsApp QR */}
             <div className="text-center">
-              <p className="mb-1 text-[10px] font-body font-bold text-[hsl(var(--sky))]">WhatsApp Group 👇</p>
               <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer"
                 className="inline-block bg-foreground rounded-xl p-2 shadow-gold cursor-pointer hover:scale-105 transition-transform">
                 <img src={whatsappQr} alt="WhatsApp Group" className="w-20 h-20" />
               </a>
+              <p className="mt-1 text-[9px] font-body font-bold text-accent">📲 WhatsApp Group</p>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom footer */}
-      <div className="flex-shrink-0 text-center border-t border-gold/20 pt-2 pb-1 relative z-10">
-        <div className="flex items-center justify-center gap-3 mb-1 opacity-40">
-          <User className="w-4 h-4 text-sky-light" />
-          <Mic className="w-3 h-3 text-accent" />
-          <Camera className="w-3 h-3 text-sky-light" />
+        {/* Bottom footer */}
+        <div className="flex-shrink-0 text-center border-t border-gold/20 pt-1.5 pb-1">
+          <p className="font-display text-[10px] italic text-gold-gradient">
+            "Showcase Your Confidence. Speak. Shine. Succeed."
+          </p>
         </div>
-        <p className="font-display text-xs italic text-gold-gradient">
-          "Showcase Your Confidence. Speak. Shine. Succeed."
-        </p>
       </div>
     </div>
   );
