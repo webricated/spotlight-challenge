@@ -26,7 +26,7 @@ const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSexample/viewf
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/JON6X0wYhjmBwBhwOURl1s";
 
 const PointingFinger = () => (
-  <span className="inline-block animate-bounce text-lg" style={{ transform: "rotate(-90deg)" }}>👆</span>
+  <span className="inline-block animate-bounce text-lg" style={{ transform: "rotate(-90deg)" }}>👈</span>
 );
 
 const EventFlyer = () => {
