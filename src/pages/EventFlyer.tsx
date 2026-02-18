@@ -22,7 +22,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSexample/viewform";
+const GOOGLE_FORM_URL = "https://forms.gle/FPPELzjj7MNhUPhs7";
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/JON6X0wYhjmBwBhwOURl1s";
 
 const PointingFinger = () => (
