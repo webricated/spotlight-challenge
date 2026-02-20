@@ -1,73 +1,56 @@
-# Welcome to your Lovable project
+# 🎬 Welcome to the Spotlight Challenge!
 
-## Project info
+## 🚀 What is this?
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Get ready for an exciting **Video Challenge Event** where talent meets opportunity!
+This is your chance to showcase your skills, creativity, confidence, and passion — all in one powerful reel.
 
-## How can I edit this code?
+No complicated process.
+No registration fee.
+Just pure performance.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🎯 How to Participate?
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+1️⃣ Create your best video based on the challenge theme.
+2️⃣ Upload your reel as instructed.
+3️⃣ Share it proudly and tag us.
 
-Changes made via Lovable will be committed automatically to this repo.
+That’s it — you’re officially in!
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🔥 Why Join?
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+* Build confidence
+* Showcase your talent
+* Gain visibility
+* Stand out from the crowd
 
-Follow these steps:
+This is more than just a challenge — it’s your spotlight moment.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 💡 Who Can Participate?
 
-# Step 3: Install the necessary dependencies.
-npm i
+Students, creators, innovators — anyone ready to step forward and take the challenge.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 🤩 Spotlight Challenge
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Step up.
+Stand out.
+Shine brighter.
 
-**Use GitHub Codespaces**
+Are you ready?
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+If you want, I can also give you:
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+* 🎤 A powerful 20–30 second speaking script
+* 📱 A reel caption version
+* 🎬 A cinematic hook version
+* 🔥 A high-energy hype version
